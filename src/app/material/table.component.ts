@@ -11,6 +11,9 @@ import { catchError  } from 'rxjs/operators';
         Reusable Table
       </mat-card-title>
       <mat-card-content>
+        <mat-form-field appearance="outline">
+          <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+        </mat-form-field>
         <div class="container mat-elevation-z8">
           <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
             <ng-container *ngFor="let column of columns" [cdkColumnDef]="column.columnDef">
@@ -29,6 +32,10 @@ import { catchError  } from 'rxjs/operators';
   styles: [`
     table {
       width: 100%;
+    },
+    .mat-form-field {
+      font-size: 14px;
+      width: 100%;
     }
   `]
 })
@@ -44,5 +51,9 @@ export class TableComponent implements OnChanges {
       this.displayedColumns = this.columns.map(c => c.columnDef);
     }, catchError(err => of(`Error: ${err}`))
     );
+  }
+
+  applyFilter(filterValue: string) {
+    this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 }

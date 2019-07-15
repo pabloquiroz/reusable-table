@@ -4,6 +4,8 @@ import {MatTableModule} from '@angular/material/table';
 import { TableComponent } from './table.component';
 import {CdkTableModule} from '@angular/cdk/table';
 import {MatCardModule} from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -13,7 +15,9 @@ import {MatCardModule} from '@angular/material/card';
     CommonModule,
     MatTableModule,
     CdkTableModule,
-    MatCardModule
+    MatCardModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   exports: [
     TableComponent
