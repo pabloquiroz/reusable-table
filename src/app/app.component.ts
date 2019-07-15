@@ -27,7 +27,5 @@ export class AppComponent implements OnInit {
   getData() {
     this.columnsTable = this.dataService.columnTableCustomers;
     this.data = this.dataService.getData();
-
-    this.data.subscribe(x => console.log(x));
   }
 }
